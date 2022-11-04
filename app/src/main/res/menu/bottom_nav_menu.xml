@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/aboutMeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/plus"/>
+    <item
+        android:id="@+id/shareSettingsFragment"
+        android:title="@string/share_location"
+        android:icon="@drawable/plus"/>
+    <item
+        android:id="@+id/friendsFragment2"
+        android:title="@string/search"
+        android:icon="@drawable/plus"/>
+</menu>

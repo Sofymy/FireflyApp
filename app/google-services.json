@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47651751829",
+    "project_id": "thesis-zsofiaszeg",
+    "storage_bucket": "thesis-zsofiaszeg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47651751829:android:37f9f6f1c9763a094e589c",
+        "android_client_info": {
+          "package_name": "com.example.thesis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47651751829-mc3j6lovlcdquf10tr0t3bhj8ekh2hkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwZcfp8iWUBsEydGows9CwBcTclwBEzd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47651751829-mc3j6lovlcdquf10tr0t3bhj8ekh2hkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.example.thesis.viewModels.LoginViewModel"/>
+        <variable
+            name="loginF"
+            type="com.example.thesis.views.auth.LoginFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:text="@={viewModel.MEmail}" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:text="@={viewModel.MPassword}"
+            android:autofillHints="password" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="@string/ok"
+            android:onClick="@{()->viewModel.login()}"
+            android:contentDescription="@string/app_name" />
+
+        <Button
+            android:id="@+id/forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="@string/forgot_my_password"
+            android:contentDescription="@string/app_name" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.loggedin.MapsFragment">
+
+    <include
+        android:id="@+id/map"
+        layout="@layout/include_map_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/plus"
+        android:text="@string/ok_lets_share"
+        android:layout_margin="36dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:text="@string/back"
+        android:layout_margin="36dp"
+        android:contentDescription="TODO" />
+
+</FrameLayout>
+</layout>
