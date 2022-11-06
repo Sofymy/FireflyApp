@@ -11,11 +11,6 @@ import com.example.thesis.R
 class FriendsFragment : Fragment() {
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val viewPagerAdapter = ViewPagerAdapter(childFragmentManager)
         val viewPager = view.findViewById<ViewPager>(R.id.viewPager)

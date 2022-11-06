@@ -21,7 +21,6 @@ class AuthActivity : AppCompatActivity(){
             this@AuthActivity,
             R.id.nav_host_fragment
         )
-        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {

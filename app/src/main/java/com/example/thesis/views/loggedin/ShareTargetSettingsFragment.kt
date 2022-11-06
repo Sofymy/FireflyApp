@@ -49,14 +49,15 @@ class ShareTargetSettingsFragment : Fragment() {
         val supportMap = childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
         fusedLocationClient = context?.let { LocationServices.getFusedLocationProviderClient(it) }!!
         supportMap.getMapAsync { googleMap ->
-            googleMap.setOnMapClickListener {
-                addMarker(googleMap, it)
-                binding.fab.setOnClickListener{
-                    val bundle = arguments?.get("user").toString()
-                    val bundle2 = Bundle()
-                    bundle2.putString("user", bundle)
-                    bundle2.putString("target", bundle)
-                    view.findNavController().navigate(R.id.action_shareTargetSettingsFragment_to_mapsFragment, bundle2)
+            googleMap.setOnMapClickListener { target ->
+                addMarker(googleMap, target)
+                binding.fab.setOnClickListener{ view ->
+                    val user = arguments?.get("user").toString()
+                    val bundle = Bundle()
+                    bundle.putString("user", user)
+                    bundle.putString("target", target.toString())
+                    bundle.putString("type", ShareTargetType.MAP.toString())
+                    view.findNavController().navigate(R.id.action_shareTargetSettingsFragment_to_mapsFragment, bundle)
                 }
             }
         }

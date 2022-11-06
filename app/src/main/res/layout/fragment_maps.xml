@@ -21,14 +21,14 @@
         android:src="@drawable/plus"
         android:text="@string/ok_lets_share"
         android:layout_margin="36dp" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabback"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start|bottom"
-        android:text="@string/back"
         android:layout_margin="36dp"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        android:text="STOP" />
 
 </FrameLayout>
 </layout>

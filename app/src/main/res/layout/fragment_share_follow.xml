@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="fragment" type="com.example.thesis.views.loggedin.ShareFollowFragment"/>
+    </data>
+
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.loggedin.ShareFollowFragment">
@@ -11,6 +16,14 @@
         layout="@layout/include_map_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center"
+        android:background="#009688" />
+
 
 </FrameLayout>
 </layout>

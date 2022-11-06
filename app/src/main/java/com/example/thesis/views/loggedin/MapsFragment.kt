@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,13 +53,28 @@ class MapsFragment : Fragment(),
         val supportMap = childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
         fusedLocationClient = context?.let { LocationServices.getFusedLocationProviderClient(it) }!!
         supportMap.getMapAsync(this)
-        binding.fab.setOnClickListener{
+
+
+        binding.fabStop.setOnClickListener{
+            val user = arguments?.get("user").toString()
+            locationViewModel.stopSharing(user)
+            view.findNavController().navigate(R.id.action_mapsFragment_to_aboutMeFragment)
+        }
+
+        binding.fab.setOnClickListener {
             binding.fab.isEnabled = false
             binding.fab.text = getString(R.string.Sharei)
-            arguments?.get("user")?.let { user->
-                arguments?.get("target")?.let {  target->
+            arguments?.get("user")?.let { user ->
                 locationViewModel.addNewShare(user.toString())
+                val type = arguments?.get("type")
+                val target = arguments?.get("target")
+                if (type == "MAP")
+                    locationViewModel.addNewTarget(target.toString())
+                if (type == "MANUAL")
+                    locationViewModel.addNewManualTarget(target.toString())
+
             }
+        }
 
             val refreshHandler = Handler()
             val runnable: Runnable = object : Runnable {
@@ -76,11 +90,6 @@ class MapsFragment : Fragment(),
                 }
             }
             refreshHandler.postDelayed(runnable, 5 * 1000)
-
-        }
-        binding.fabback.setOnClickListener{
-            view.findNavController().navigate(R.id.action_mapsFragment_to_shareTargetSettingsFragment)
-        }
 
     }
 

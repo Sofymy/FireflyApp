@@ -11,14 +11,11 @@ import kotlinx.coroutines.launch
 
 class LocationViewModel: ViewModel() {
     var location: MutableLiveData<Location> = MutableLiveData<Location>()
+    var targetLocation: MutableLiveData<String> = MutableLiveData<String>()
     private var locationRepository = LocationRepository()
 
     fun addNewShare(username: String) {
         locationRepository.addNewShare(username)
-    }
-
-
-    fun startFollow(item: User) {
     }
 
     fun getAllRequests(data: ArrayList<User>, adapter: ShareRequestsAdapter) {
@@ -33,9 +30,27 @@ class LocationViewModel: ViewModel() {
     }
 
     fun getLocation(username: String) = viewModelScope.launch {
-        locationRepository.getLat(username).collect{ value ->
+        locationRepository.getLocation(username).collect{ value ->
             location.value = value
         }
+    }
+
+    fun addNewTarget(target: String) {
+        locationRepository.addNewTarget(target)
+    }
+
+    fun getTarget(username: String) = viewModelScope.launch {
+        locationRepository.getTarget(username).collect{ value ->
+            targetLocation.value = value
+        }
+    }
+
+    fun addNewManualTarget(target: String) {
+        locationRepository.addNewManualTarget(target)
+    }
+
+    fun stopSharing(user: String) {
+        locationRepository.stopSharing(user)
     }
 
 }

@@ -2,20 +2,37 @@ package com.example.thesis.repository
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
+import com.example.thesis.MyFirebaseMessagingService
 import com.example.thesis.model.User
 import com.example.thesis.views.loggedin.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 
 class FriendsRepository {
     private val requestFrom = MutableLiveData<String>()
+    val newRequests = MutableLiveData(0)
+
+    fun incrementRequestNumber() : Flow<Int?> {
+        return flow{
+            newRequests.postValue(newRequests.value?.plus(1))
+            emit(newRequests.value)
+        }.flowOn(Dispatchers.IO)
+    }
+
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val authDatabase: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
+
 
     @SuppressLint("NotifyDataSetChanged")
     fun getAllUsers(data: ArrayList<User>, adapter: FriendAdapter) {
@@ -50,16 +67,18 @@ class FriendsRepository {
                             val user = User(document.toString(), "")
                             if (user !in data) {
                                 data.add(user)
+                                incrementRequestNumber()
                             }
                         }
                         adapter.notifyDataSetChanged()
                     }
                 }
-                }
             }
+        }
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("NotifyDataSetChanged")
     fun getNewRequests(data: ArrayList<User>, adapter: FriendRequestAdapter) {
         authDatabase.currentUser?.let {
@@ -80,6 +99,7 @@ class FriendsRepository {
                                         val user = User(username, uid)
                                         if (user !in data && requestFrom.value!=user.toString()) {
                                             data.add(user)
+                                            incrementRequestNumber()
                                         }
                                     }
                                 }
@@ -166,7 +186,7 @@ class FriendsRepository {
                         if (snapshot != null && snapshot.exists()) {
                             val d = snapshot.data
                             if(!d.isNullOrEmpty()) {
-                                val value = d.get("friends") as ArrayList<*>
+                                val value = d["friends"] as ArrayList<*>
                                 if (value.isNotEmpty() && value.last() != null) {
                                     for (v in value) {
                                         val username = v.toString()

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/aboutMeFragment"
-        android:name="com.example.thesis.views.loggedin.AboutMeFragment"
+        android:name="com.example.thesis.views.loggedin.HomeFragment"
         android:label="fragment_about_me"
-        tools:layout="@layout/fragment_about_me" >
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_aboutMeFragment_to_shareFollowFragment"
             app:destination="@id/shareFollowFragment" />
@@ -24,21 +24,25 @@
         android:name="com.example.thesis.views.loggedin.ShareSettingsFragment"
         android:label="ShareSettingsFragment" >
         <action
-            android:id="@+id/action_shareSettingsFragment_to_shareTargetSettingsFragment"
-            app:destination="@id/shareTargetSettingsFragment" />
+            android:id="@+id/action_shareSettingsFragment_to_shareTypeSettingsFragment"
+            app:destination="@id/shareTypeSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.thesis.views.loggedin.MapsFragment"
         android:label="MapsFragment" >
         <action
-            android:id="@+id/action_mapsFragment_to_shareTargetSettingsFragment"
-            app:destination="@id/shareTargetSettingsFragment" />
+            android:id="@+id/action_mapsFragment_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment" />
     </fragment>
     <fragment
         android:id="@+id/shareFollowFragment"
         android:name="com.example.thesis.views.loggedin.ShareFollowFragment"
-        android:label="ShareFollowFragment" />
+        android:label="ShareFollowFragment" >
+        <action
+            android:id="@+id/action_shareFollowFragment_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shareTargetSettingsFragment"
         android:name="com.example.thesis.views.loggedin.ShareTargetSettingsFragment"
@@ -46,8 +50,25 @@
         <action
             android:id="@+id/action_shareTargetSettingsFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareTypeSettingsFragment"
+        android:name="com.example.thesis.views.loggedin.ShareTypeSettingsFragment"
+        android:label="fragment_share_type_settings"
+        tools:layout="@layout/fragment_share_type_settings" >
         <action
-            android:id="@+id/action_shareTargetSettingsFragment_to_shareSettingsFragment"
-            app:destination="@id/shareSettingsFragment" />
+            android:id="@+id/action_shareTypeSettingsFragment_to_shareManualTargetFragment"
+            app:destination="@id/shareManualTargetFragment" />
+        <action
+            android:id="@+id/action_shareTypeSettingsFragment_to_shareTargetSettingsFragment"
+            app:destination="@id/shareTargetSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareManualTargetFragment"
+        android:name="com.example.thesis.views.loggedin.ShareManualTargetFragment"
+        android:label="ShareManualTargetFragment" >
+        <action
+            android:id="@+id/action_shareManualTargetFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
 </navigation>

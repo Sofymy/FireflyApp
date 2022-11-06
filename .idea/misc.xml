@@ -26,8 +26,10 @@
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_requests.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_share_follow.xml" value="0.1" />
+        <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_share_manual_target.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_share_settings.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_share_target_settings.xml" value="0.1734375" />
+        <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/fragment_share_type_settings.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/friend_current_view_design.xml" value="0.2515625" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/friend_requests_view_design.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/friend_select_view_design.xml" value="0.1" />
@@ -37,6 +39,7 @@
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/share_pending_view_design.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/layout/share_view_design.xml" value="0.1" />
         <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/zsofia.szeg/AndroidStudioProjects/Thesis/app/src/main/res/menu/top_app_bar.xml" value="0.1" />
       </map>
     </option>
   </component>

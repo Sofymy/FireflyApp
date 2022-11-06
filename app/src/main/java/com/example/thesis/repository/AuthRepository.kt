@@ -30,7 +30,15 @@ class AuthRepository {
                 val uid = user.uid
                 val receivedFriendRequests = ArrayList<String>()
                 val friends = ArrayList<String>()
-                val userData = hashMapOf("email" to emailAddress, "username" to userName, "uid" to uid, "receivedFriendRequests" to receivedFriendRequests, "friends" to friends)
+                val follows:Int = 0
+                val shares:Int = 0
+                val userData = hashMapOf("email" to emailAddress,
+                        "username" to userName,
+                        "uid" to uid,
+                        "receivedFriendRequests" to receivedFriendRequests,
+                        "friends" to friends,
+                        "follows" to follows,
+                        "shares" to shares)
                 firestore.collection("users").document(userName).set(userData)
                     .addOnSuccessListener { Log.d("FB", "DocumentSnapshot written") }
                     .addOnFailureListener { e -> Log.d("FB", "Error adding document", e) }
@@ -51,7 +59,6 @@ class AuthRepository {
     }
 
     private fun updateProfile(username: String) {
-        // [START update_profile]
         val user = authDatabase.currentUser
 
         val profileUpdates = userProfileChangeRequest {

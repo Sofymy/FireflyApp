@@ -11,17 +11,18 @@ import androidx.navigation.findNavController
 import com.example.thesis.R
 import androidx.navigation.fragment.findNavController
 import com.example.thesis.databinding.FragmentHomeBinding
+import com.example.thesis.databinding.FragmentStartBinding
 
 
-class HomeFragment : Fragment() {
+class StartFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentStartBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding  = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding  = DataBindingUtil.inflate(inflater, R.layout.fragment_start, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
